@@ -1,0 +1,58 @@
+1. What can this program do?
+Turning a song file into playable sheetmusic
+
+1st Step: Load the file (format mp3)
+
+2nd: Set a parameter and analyze the window of the song
+
+3rd: down the sample for 10 times using an average filter
+It takes out some of the high frequency 
+content and decrease the number of points
+in the sample to speed up calculations,
+especially with FFTs to come.
+
+4th: Threshold the notes
+Using a moving average threshold since
+some of the notes are significantly louder
+than others.
+This way we could detect these tall peaks 
+while still preserving some of the smaller
+but significant notes in the signal.
+Go through all of the notes and computed 
+the FFT, plotting these we can see some 
+of these notes were cleaner than others.
+
+Last step: Play back notes
+  
+*Notes: 
+For helper function:
+The function frequency to note took all 
+of those frequencies and map them to a
+known frequency of a note.
+Outputting the string so we are left with
+an array of all the notes of the window of
+the song
+
+1. Input song:
+Have the file in the matlab folder
+Dùng lệnh audioread để đọc file với format mp3
+chỉnh tốc độ 
+
+2. parameter setting
+t1, t2 là các đoạn để cắt thời lượng
+đặt t1= 1.0 và t2= 3.3e6
+
+phân tích bài hát theo từng bước:
+dùng lệnh audio write để nghe file bản gốc
+
+3. Downsample Note: (giảm âm tần)
+Down the sample 10 times (set m = 10)
+
+4. Threshold notes: (loại bỏ các note)
+
+5. Frequencies Notes
+Tính frequency của từng nốt 
+
+6. Bback notes:
+Tổng hợp các bước trên
+ 
